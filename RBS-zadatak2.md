@@ -1,4 +1,4 @@
-RBS - ZADATAK1
+RBS - ZADATAK2
 # A. Motivacija napadača
 Razmatrajući potencijalne napadače MegaTravel-a, moguće je identifikovati nekoliko klasa napadača, njihove nivoe veštine, pristupe sistemu i krajnje ciljeve:
 
@@ -23,6 +23,33 @@ Razmatrajući potencijalne napadače MegaTravel-a, moguće je identifikovati nek
 - **Krajnji cilj**: Oštećenje sistema iznutra, krađa osetljivih informacija ili sabotaža iznutra.
 
 # B. Imovina (Assets)
+U cilju efikasne zaštite vitalnih resursa MegaTravel korporacije, identifikovali smo ključne assete analizom motiva napadača, poslovnih potreba naše korporacije
+i važećih zakonskih propisa:
+
+1) **PODACI KORISNIKA:**
+- **Inherentna izloženost**: Administratori agencije.
+- **Bezbednosni ciljevi sredstva**:
+  - Poverljivost je ključna kako bi se očuvao pristup korisničkim informacijama.
+  - Integritet očuvava tačnosti i pouzdanosti tih informacija.
+  - Dostupnost omogućava korisnicima konstantan pristup njihovim podacima.
+- **Uticaj oštećenja bezbednosnih ciljeva na korporaciju**: Gubitak poverenja, reputacijska šteta, finansijski gubitak.
+  
+2) **PODACI O REZERVACIJAMA:**
+- **Inherentna izloženost**: Administratori agencije.
+- **Bezbednosni ciljevi sredstva**:
+  - Poverljivost je ključna kako bi se očuvali podaci o korisnickim rezervacijama i putovanjima.
+  - Integritet očuvava tačnosti i pouzdanosti tih informacija.
+  - Dostupnost omogućava korisnicima konstantan pristup informacijama o putovanju kada su im neophodne.
+- **Uticaj oštećenja bezbednosnih ciljeva na korporaciju**: Gubitak poverenja, reputacijska šteta, finansijski gubitak.
+  
+3) **NAŠ SERVER:**
+- **Inherentna izloženost**: Svi zaposleni.
+- **Bezbednosni ciljevi sredstva**:
+  - Dostupnost servera je ključna kako bi se osiguralo nesmetano poslovanje MegaTravel-a.
+  - Integritet podataka koji se nalaze na serveru sprečava neovlašćene manipulacije nad podacima.
+  - Poverljivost se odnosi na baze podataka sa osetljivim informacijama .
+- **Uticaj oštećenja bezbednosnih ciljeva na korporaciju**: Prekid poslovanja, reputacijska šteta, finansijski gubitak.
+  
 # C. Površina napada (Attack surface)
 # D. Data flow diagrams
 # E. Analiza pretnji i migracije (Threat and migration)
