@@ -75,4 +75,3 @@ Napadači, bilo da je reč o korisnicima, zaposlenima, konkurenciji ili hakerski
 # D. Data flow diagrams
 ![alt text](https://github.com/anitapajic/RBS/blob/main/ThreatModelDiagram.png?raw=true)
 
-# E. Analiza pretnji i migracije (Threat and migration)
