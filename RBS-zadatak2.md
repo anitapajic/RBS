@@ -1,4 +1,4 @@
-RBS - ZADATAK1
+RBS - ZADATAK2
 # A. Motivacija napadača
 Razmatrajući potencijalne napadače MegaTravel-a, moguće je identifikovati nekoliko klasa napadača, njihove nivoe veštine, pristupe sistemu i krajnje ciljeve:
 
