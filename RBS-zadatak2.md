@@ -51,5 +51,26 @@ i važećih zakonskih propisa:
 - **Uticaj oštećenja bezbednosnih ciljeva na korporaciju**: Prekid poslovanja, reputacijska šteta, finansijski gubitak.
   
 # C. Površina napada (Attack surface)
+Napadači, bilo da je reč o korisnicima, zaposlenima, konkurenciji ili hakerskim grupama, u zavisnosti od nivoa veština mogu izvršiti različite vrste napada. Ispitujući korisnike koji komuniciraju sa MegaTravel sistemom, mapirali smo nekoliko ulaznih tačaka sa kojih mogu da sprovedu svoje napade.
+
+1) **BROWSER (BUSINESS WEBSITE)** 
+- **Phishing** napadi kako bi prevarili korisnike da otkriju svoje informacije.
+- **DDoS (Distributed Denial of Service)**  napad na veb sajt kako bi ga onesposobili ili narušili njegovu dostupnost.
+- **XSS (Cross-Site Scripting)** napadi koji mogu dovesti do krađe kolačića sa sesijom, manipulacije sadržajem stranice ili preusmeravanjem korisnika na zlonamerne sajtove
+- **CSRF (Cross-Site Request Forgery)** napad kako bi izvršili neželjenu akciju na veb aplikaciji. Na primer, ako korisnik ima otvorenu sesiju sa MegaTravel-om, napadač može da iskoristi tu sesiju da bi izvršio transakciju bez znanja korisnika.
+
+2) **BAZA PODATAKA**
+- **Injection Attacks (SQL injection)** napadi kako bi dobili neovlašćen pristup bazi, radi krađe ili izmene podataka.
+
+3) **WIRELESS NETWORKS**
+- **Rogue Access Points**
+</br>Napadači mogu postaviti rogue access points na Wi-Fi mreži MegaTravel-a kako bi pratili komunikaciju ili dobili pristup internim sistemima.
+
+4) **ZAPOSLENI (INSAJDERI)** 
+</BR>Zaposleni su često zanemarena ulazna tačka napada. Oni mogu slučajno ili namerno otkriti osetljive informacije. Da bi se smanjio rizik od ovakvih napada, neophodno je obučavati zaposlene o sigurnosnim merama i praksama, kao i ograničiti prava pristupa osetljivim informacijama.
+
+5) **THIRD-PARTY PROVIDERS**
+</BR>Kao i zaposleni, third-party provajderi mogu postati ulazna tačka za napade. To je uglavnom zato što je teško direktno kontrolistati njihovu sigurnost. Ne samo da nemampo uticaj na to kako oni upravljaju našim podacima, već određeni provajderi mogu dalje prodavati te podatke.
+
 # D. Data flow diagrams
 # E. Analiza pretnji i migracije (Threat and migration)
