@@ -296,7 +296,7 @@
     - Ušli smo na formu za žalbe. Kada želimo da izaberemo dokument, dozvoljeni tipovi su samo pdf i zip fajlovi. Medjutim ukoliko se u imenu datoteke stavi \*.xml ili neki drugi tp, može se izabrati i datoteka tog tipa. Kada se pred takva datoteka dolazi do željene greške.
 
 # Cryptographic Issues
-- ` `Kriptografski problemi nastaju kada implementacija kriptografskih funkcija u softveru nije izvršena ispravno, što može uključivati korišćenje slabih algoritama, neadekvatno upravljanje ključevima, ili nepravilnu primenu kriptografskih protokola.
+- Kriptografski problemi nastaju kada implementacija kriptografskih funkcija u softveru nije izvršena ispravno, što može uključivati korišćenje slabih algoritama, neadekvatno upravljanje ključevima, ili nepravilnu primenu kriptografskih protokola.
 
 - **Uticaj Exploita:** Slabe ili pogrešno implementirane kriptografske metode mogu dovesti do otkrivanja ili manipulacije osetljivim podacima, što može rezultirati gubitkom privatnosti, finansijskim gubicima, ili drugim sigurnosnim incidentima.
 
