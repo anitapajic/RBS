@@ -39,6 +39,8 @@ Anita Pajić, Aleksandra Filipić, Tamara Džambić
 
 Onemogućavanje CSRF zaštite može biti opasno jer otvara vrata za CSRF napade, gde napadač može da primora korisnike da izvrše neželjene akcije na njihovim nalozima. Preporučuje se da se CSRF zaštita ne isključuje osim ako postoji dobar razlog i ako se preduzimaju odgovarajuće mere zaštite, kao što su korišćenje drugih mehanizama zaštite ili ograničenje pristupa određenim rutama.
 
+![alt text](https://github.com/anitapajic/RBS/blob/main/images/slika1.1.png?raw=true)
+
 **Preporučene prakse sigurnog kodiranja** 
 
 Zaštita protiv CSRF napada se snažno preporučuje: 
@@ -56,6 +58,8 @@ Kada softver generiše predvidive vrednosti u kontekstu koji zahteva nepredvidlj
 
 Pošto java.util.Random klasa zavisi od pseudoslučajnog generatora brojeva, ova klasa i povezana java.lang.Math.random() metoda ne bi trebalo da se koriste za aplikacije koje su kritične po pitanju bezbednosti ili za zaštitu osetljivih podataka. U takvim kontekstima, trebalo bi koristiti java.security.SecureRandom klasu koja se oslanja na kriptografski snažan generator slučajnih brojeva (RNG). 
 
+![alt text](https://github.com/anitapajic/RBS/blob/main/images/slika1.2.png?raw=true)
+
 **Preporučene prakse sigurnog kodiranja:**
 
 - Koristite kriptografski snažan generator slučajnih brojeva (RNG) poput "java.security.SecureRandom" umesto ovog PRNG. 
@@ -67,6 +71,8 @@ Pošto java.util.Random klasa zavisi od pseudoslučajnog generatora brojeva, ova
 Imati dozvoljavajuću politiku deljenja resursa preko različitih domena (Cross-Origin Resource Sharing - CORS) je osetljivo na bezbednost. U prošlosti je dovelo do sledećih ranjivosti: CVE-2018-0269, CVE-2017-14460  
 
 Same origin policy  u pregledačima podrazumevano, iz sigurnosnih razloga, sprečava JavaScript frontend da izvrši cross-origin HTTP zahtev ka resursu koji ima drugo poreklo (domen, protokol ili port) od svog. 
+
+![alt text](https://github.com/anitapajic/RBS/blob/main/images/slika1.3.png?raw=true)
 
 **Preporučene prakse sigurnog kodiranja:**
 
@@ -80,6 +86,8 @@ Prihvatanjem perzistentnih entiteta kao argumenata metoda, aplikacija omogućava
 Napadači bi mogli da falsifikuju zlonamerne HTTP zahteve koji će promeniti neočekivana svojstva perzistentnih objekata. To može dovesti do neovlašćenih modifikacija stanja entiteta. Ovo je poznato kao napad masovnog dodeljivanja (mass assignment attack). 
 
 Zbog toga što su perzistentni objekti modifikovani direktno bez prethodne logike, napadači bi mogli da iskoriste ovaj problem da bi zaobišli bezbednosne mere koje inače sprovodi aplikacija.
+
+![alt text](https://github.com/anitapajic/RBS/blob/main/images/slika1.4.png?raw=true)
 
 **Preporučene prakse sigurnog kodiranja:**
 - Zameniti ovaj perzistentni entitet jednostavnim POJO ili DTO objektom.  
