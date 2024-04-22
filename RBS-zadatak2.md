@@ -73,5 +73,5 @@ Napadači, bilo da je reč o korisnicima, zaposlenima, konkurenciji ili hakerski
 </BR>Kao i zaposleni, third-party provajderi mogu postati ulazna tačka za napade. To je uglavnom zato što je teško direktno kontrolistati njihovu sigurnost. Ne samo da nemampo uticaj na to kako oni upravljaju našim podacima, već određeni provajderi mogu dalje prodavati te podatke.
 
 # D. Data flow diagrams
-![alt text](https://github.com/anitapajic/RBS/blob/main/ThreatModelDiagram.png?raw=true)
+![alt text](https://github.com/anitapajic/RBS/blob/main/images/ThreatModelDiagram.png?raw=true)
 
