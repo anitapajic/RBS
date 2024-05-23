@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 
@@ -11,10 +11,12 @@ def home():
     return f"HOME"
 
 
-@app.route('/', methods=['PUT'])
+@app.route('/', methods=['POST'])
 def safety_system():
     try:
-        print("aaaaaa")
+        data = request.json.get('data')
+        print("Received data:", data)
+        return jsonify({"response": data})
     except Exception as e:
         return jsonify({"response": "error - " + str(e)})
 
