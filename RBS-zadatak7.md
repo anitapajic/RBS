@@ -5,13 +5,13 @@ RBS – ZADATAK 7
 
 # Test okruženje
 1. **Python aplikacija sa '/upload' endpointom:** 
-  * Endpoint ***@app.route('/upload', methods=['POST'])*** prima tar fajl i ekstraktuje ga u 'extracted' direktorijum
+   * Endpoint ***@app.route('/upload', methods=['POST'])*** prima tar fajl i ekstraktuje ga u 'extracted' direktorijum
 3. **React aplikacija sa formom za upload fajla:**
-  * Jednostavna forma koristi 'POST' metodu za slanje fajla na Python backend.
+   * Jednostavna forma koristi 'POST' metodu za slanje fajla na Python backend.
   
 5. **Burp Suite instalacija:**
-  * Burp Suite je postavljen da sluša na **127.0.0.1:8080** i proxy je pravilno podešen.
-  * React aplikacija je otvorena u Burp embedded Chrome browseru.  
+   * Burp Suite je postavljen da sluša na **127.0.0.1:8080** i proxy je pravilno podešen.
+   * React aplikacija je otvorena u Burp embedded Chrome browseru.  
 
 
 # Testiranje Zip Slip ranjivosti
