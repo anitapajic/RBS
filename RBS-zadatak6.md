@@ -1,4 +1,4 @@
-RBS – ZADATAK 4
+RBS – ZADATAK 6
 # Zadatak 4
 Za četvrti zadatak, zadatak je bio da dekodiramo sadržaj emaila. Prvo smo kopirali sadržaj emaila, a zatim smo otišli na sajt <https://www.spammimic.com/decode.cgi>. Nakon što smo dekodirali tekst iz emaila, dobili smo sledeći rezultat: `UNS{EM4IL\_5P4M\_AG4N?}`.
 
