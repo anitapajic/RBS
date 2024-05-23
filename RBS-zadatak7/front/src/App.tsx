@@ -1,20 +1,30 @@
 
 import { useState } from 'react';
 import './App.css';
-import Service from './service/Service';
-
-
 
 function App() {
-  const [inputValue, setInputValue] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+  const handleFileChange = (event: any) => {
+    setSelectedFile(event.target.files[0]);
   };
 
-  const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = async (event: any) => {
     event.preventDefault();
-    await Service.submit(inputValue);
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+
+      const response = await fetch('http://localhost:8085/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+      console.log(result);
+    } else {
+      console.error('No file selected');
+    }
   };
   
   return (
@@ -23,10 +33,9 @@ function App() {
       <form className='form'>
         <h2 className='h2'>Happy hacking!</h2>
         <input className="input"
-               type='text'
+               type='file'
                placeholder='Enter here'
-               value={inputValue}
-               onChange={handleInputChange}/>
+               onChange={handleFileChange}/>
         <button className='button'
                 type='submit'
                 onClick={handleClick}
