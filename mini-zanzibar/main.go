@@ -138,6 +138,50 @@ func createOrUpdateNamespaceEndpoint(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "Namespace created/updated"})
 }
 
+// Funkcije za ACL u LevelDB
+func createOrUpdateACL(object, relation, user string) error {
+	// Prvo obriši sve postojeće ACL zapise za datog korisnika na ovom objektu
+	err := deleteACLForUser(object, user)
+	if err != nil {
+		return err
+	}
+
+	// Dodaj novi ACL zapis
+	key := object + "#" + relation + "@" + user
+	err = db.Put([]byte(key), []byte{}, nil)
+	return err
+}
+
+func deleteACLForUser(object, user string) error {
+	iter := db.NewIterator(nil, nil)
+	defer iter.Release()
+	for iter.Next() {
+		key := string(iter.Key())
+		if strings.HasPrefix(key, object+"#") && strings.HasSuffix(key, "@"+user) {
+			err := db.Delete([]byte(key), nil)
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return iter.Error()
+}
+
+// API Endpoint funkcije
+func createOrUpdateACLEndpoint(c *gin.Context) {
+	var acl AccessControlList
+	if err := c.ShouldBindJSON(&acl); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	err := createOrUpdateACL(acl.Object, acl.Relation, acl.User)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"status": "ACL created/updated"})
+}
+
 // Inicijalizacija i pokretanje servera
 func main() {
 	r := gin.Default()
@@ -148,7 +192,7 @@ func main() {
 	initConsul()
 
 	// Definisanje ruta
-	//r.POST("/acl", createOrUpdateACLEndpoint)
+	r.POST("/acl", createOrUpdateACLEndpoint)
 	//r.GET("/acl/check", checkACLEndpoint)
 	r.POST("/namespace", createOrUpdateNamespaceEndpoint)
 
