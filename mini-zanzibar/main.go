@@ -182,6 +182,70 @@ func createOrUpdateACLEndpoint(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "ACL created/updated"})
 }
 
+func checkACL(object, relation, user string) (bool, error) {
+	// Proverava trenutnu relaciju
+	key := object + "#" + relation + "@" + user
+	_, err := db.Get([]byte(key), nil)
+	if err == nil {
+		return true, nil
+	}
+	if err != nil && err != leveldb.ErrNotFound {
+		return false, err
+	}
+
+	// Proverava podrelacije
+	namespace := object[:strings.Index(object, ":")]
+	nsConfig, err := getNamespace(namespace)
+	if err != nil {
+		return false, err
+	}
+
+	if nsConfig == nil {
+		return false, nil
+	}
+
+	relationConfig, exists := nsConfig.Relations[relation]
+	if !exists {
+		return false, nil
+	}
+
+	for _, userset := range relationConfig.Union {
+		if userset.This != nil {
+			authorized, err := checkACL(object, "owner", user)
+			if err != nil {
+				return false, err
+			}
+			if authorized {
+				return true, nil
+			}
+		}
+		if userset.ComputedUserset.Relation != "" {
+			authorized, err := checkACL(object, userset.ComputedUserset.Relation, user)
+			if err != nil {
+				return false, err
+			}
+			if authorized {
+				return true, nil
+			}
+		}
+	}
+
+	return false, nil
+}
+
+func checkACLEndpoint(c *gin.Context) {
+	object := c.Query("object")
+	relation := c.Query("relation")
+	user := c.Query("user")
+
+	authorized, err := checkACL(object, relation, user)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"authorized": authorized})
+}
+
 // Inicijalizacija i pokretanje servera
 func main() {
 	r := gin.Default()
