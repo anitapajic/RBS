@@ -2,12 +2,14 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"github.com/gin-gonic/gin"
 	"github.com/hashicorp/consul/api"
 	"github.com/syndtr/goleveldb/leveldb"
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 // Strukture podataka
@@ -122,8 +124,6 @@ func getNamespace(namespace string) (*NamespaceConfig, error) {
 	return &ns, nil
 }
 
-// API Endpoint funkcije
-
 func createOrUpdateNamespaceEndpoint(c *gin.Context) {
 	var namespace NamespaceConfig
 	if err := c.ShouldBindJSON(&namespace); err != nil {
@@ -167,7 +167,6 @@ func deleteACLForUser(object, user string) error {
 	return iter.Error()
 }
 
-// API Endpoint funkcije
 func createOrUpdateACLEndpoint(c *gin.Context) {
 	var acl AccessControlList
 	if err := c.ShouldBindJSON(&acl); err != nil {
@@ -189,7 +188,7 @@ func checkACL(object, relation, user string) (bool, error) {
 	if err == nil {
 		return true, nil
 	}
-	if err != nil && err != leveldb.ErrNotFound {
+	if err != nil && !errors.Is(err, leveldb.ErrNotFound) {
 		return false, err
 	}
 
@@ -257,7 +256,7 @@ func main() {
 
 	// Definisanje ruta
 	r.POST("/acl", createOrUpdateACLEndpoint)
-	//r.GET("/acl/check", checkACLEndpoint)
+	r.GET("/acl/check", checkACLEndpoint)
 	r.POST("/namespace", createOrUpdateNamespaceEndpoint)
 
 	// Pokretanje servera
