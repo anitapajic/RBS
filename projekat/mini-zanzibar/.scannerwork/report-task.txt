@@ -1,0 +1,6 @@
+projectKey=RBS-projekat2
+serverUrl=http://localhost:9000
+serverVersion=10.6.0.92116
+dashboardUrl=http://localhost:9000/dashboard?id=RBS-projekat2
+ceTaskId=ec2e295a-016d-44c6-9ba5-2145fb029199
+ceTaskUrl=http://localhost:9000/api/ce/task?id=ec2e295a-016d-44c6-9ba5-2145fb029199
