@@ -183,53 +183,77 @@ func createOrUpdateACLEndpoint(c *gin.Context) {
 }
 
 func checkACL(object, relation, user string) (bool, error) {
-	// Proverava trenutnu relaciju
+	// Check if the exact ACL entry exists
 	key := object + "#" + relation + "@" + user
 	_, err := db.Get([]byte(key), nil)
 	if err == nil {
 		return true, nil
 	}
-	if err != nil && !errors.Is(err, leveldb.ErrNotFound) {
+	if !errors.Is(err, leveldb.ErrNotFound) {
 		return false, err
 	}
 
-	// Proverava podrelacije
-	namespace := object[:strings.Index(object, ":")]
+	// Check sub-relations if the exact ACL entry doesn't exist
+	return checkSubRelations(object, relation, user)
+}
+
+func checkSubRelations(object, relation, user string) (bool, error) {
+	// Get namespace configuration
+	namespace := getNamespaceFromObject(object)
 	nsConfig, err := getNamespace(namespace)
 	if err != nil {
 		return false, err
 	}
-
 	if nsConfig == nil {
 		return false, nil
 	}
 
+	// Check if the relation exists in the namespace configuration
 	relationConfig, exists := nsConfig.Relations[relation]
 	if !exists {
 		return false, nil
 	}
 
-	for _, userset := range relationConfig.Union {
-		if userset.This != nil {
-			authorized, err := checkACL(object, "owner", user)
-			if err != nil {
-				return false, err
-			}
-			if authorized {
-				return true, nil
-			}
+	// Iterate through union usersets
+	return iterateUnionUsersets(object, relationConfig.Union, user)
+}
+
+func getNamespaceFromObject(object string) string {
+	return object[:strings.Index(object, ":")]
+}
+
+func iterateUnionUsersets(object string, union []ComputedUserset, user string) (bool, error) {
+	for _, userset := range union {
+		authorized, err := checkUserset(object, userset, user)
+		if err != nil {
+			return false, err
 		}
-		if userset.ComputedUserset.Relation != "" {
-			authorized, err := checkACL(object, userset.ComputedUserset.Relation, user)
-			if err != nil {
-				return false, err
-			}
-			if authorized {
-				return true, nil
-			}
+		if authorized {
+			return true, nil
 		}
 	}
+	return false, nil
+}
 
+func checkUserset(object string, userset ComputedUserset, user string) (bool, error) {
+	if userset.This != nil {
+		authorized, err := checkACL(object, "owner", user)
+		if err != nil {
+			return false, err
+		}
+		if authorized {
+			return true, nil
+		}
+	}
+	if userset.ComputedUserset.Relation != "" {
+		authorized, err := checkACL(object, userset.ComputedUserset.Relation, user)
+		if err != nil {
+			return false, err
+		}
+		if authorized {
+			return true, nil
+		}
+	}
 	return false, nil
 }
 
