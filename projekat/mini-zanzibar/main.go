@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"errors"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/hashicorp/consul/api"
 	"github.com/syndtr/goleveldb/leveldb"
@@ -248,7 +249,7 @@ func checkACLEndpoint(c *gin.Context) {
 // Inicijalizacija i pokretanje servera
 func main() {
 	r := gin.Default()
-
+	r.Use(cors.Default())
 	// Inicijalizacija baza podataka
 	initDB()
 	defer closeDB()
