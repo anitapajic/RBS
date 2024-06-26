@@ -1,0 +1,851 @@
+{
+  "version": "2.2.0",
+  "summary": {
+    "title": "mini-zanzibar",
+    "owner": "",
+    "description": "",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "mini-zanzibar",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": [
+          {
+            "position": {
+              "x": 120,
+              "y": 420
+            },
+            "size": {
+              "width": 170,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "Level DB"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "1c7803cd-9348-48e8-8b60-3dc8fbb2c30c",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Store",
+              "name": "Level DB",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "480c9bab-b26e-40ab-972a-98ee16b41f75",
+                  "title": "Preopterećenje LevelDB",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Napadač pokušava da onesposobi ili ometa rad sistema, na primer preopterećivanjem LevelDB",
+                  "mitigation": "Implementacija ograničenja brzine za upite i transakcije, kao i redovno nadgledanje performansi sistema",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "058024db-6a7f-4bfc-8c19-84469c3d0ae2",
+                  "title": "Osetljive informacije",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Neovlašćen pristup ili otkrivanje osetljivih informacija u LevelDB",
+                  "mitigation": "Enkripcija osetljivih podataka u bazi, kao i implementacija SSL/TLS za sigurnu komunikaciju",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "f1d244c7-d8ea-4b73-af52-4678b590dd7d",
+                  "title": "Izmena podataka",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Napadač menja ili modifikuje podatke u LevelDB kako bi promenio pristupne kontrole ili konfiguracije",
+                  "mitigation": "Implementacija integriteta podataka i provera celovitosti pri čitanju i upisu podataka",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 565,
+              "y": 420
+            },
+            "size": {
+              "width": 200,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "Consul DB"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "4ac33700-776e-4277-b381-8f200b3a8563",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Store",
+              "name": "Consul DB",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "bf74f27f-f2ab-4297-891e-234f8f1b4ef8",
+                  "title": "Preopterećenje ConsulDB",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Napadač pokušava da onesposobi ili ometa rad sistema, na primer preopterećivanjem ConsulDB",
+                  "mitigation": "Implementacija ograničenja brzine za upite i transakcije, kao i redovno nadgledanje performansi sistema",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "c29fa9f2-ad7e-491d-8425-e635d38b8efb",
+                  "title": "Osetljive informacije",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Neovlašćen pristup ili otkrivanje osetljivih informacija u ConsulDB",
+                  "mitigation": "Enkripcija osetljivih podataka u bazi, kao i implementacija SSL/TLS za sigurnu komunikaciju",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "b726de60-ebb2-4449-8ad6-c7d4167b3a06",
+                  "title": "Izmena podataka",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Napadač menja ili modifikuje podatke u ConsulDB kako bi promenio pristupne kontrole ili konfiguracije",
+                  "mitigation": "Implementacija integriteta podataka i provera celovitosti pri čitanju i upisu podataka",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 120,
+              "y": 140.00000000000028
+            },
+            "size": {
+              "width": 170,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "createOrUpdateACL"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "adf9dc64-f7c8-434a-9028-a2745176a23b",
+            "zIndex": 3,
+            "data": {
+              "type": "tm.Process",
+              "name": "createOrUpdateACL",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 550,
+              "y": 150
+            },
+            "size": {
+              "width": 190,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "createOrUpdate\nNamespace"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "ba1edda7-1cc5-441d-9181-b00eb410db56",
+            "data": {
+              "type": "tm.Process",
+              "name": "createOrUpdate\nNamespace",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            },
+            "zIndex": 4
+          },
+          {
+            "position": {
+              "x": 340,
+              "y": 140.00000000000028
+            },
+            "size": {
+              "width": 170,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "checkACL"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "8d22c646-358d-4a72-95fb-041aa0ce1f81",
+            "data": {
+              "type": "tm.Process",
+              "name": "checkACL",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            },
+            "zIndex": 5
+          },
+          {
+            "position": {
+              "x": 320,
+              "y": -90.00000000000001
+            },
+            "size": {
+              "width": 210,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "Browser"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "158b9c64-b392-47d1-8600-a276fea53284",
+            "zIndex": 6,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Browser",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "96697f14-0739-4be5-8a0c-8bbf80221aa9",
+                  "title": "Lažno predstavljanje",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Napadač pokušava da se lažno predstavi kao legitiman korisnik kako bi dobio neovlašćen pristup kreiranju/izmeni ACL zapisa ili namespace konfiguracija",
+                  "mitigation": "Implementacija sigurnosne autentifikacije i provere identiteta korisnika prilikom svakog zahteva",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "fd650b4e-87af-4868-bc61-3e40066a1242",
+                  "title": "Negiranje aktivnosti",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Korisnik ili napadač negira ili osporava svoje aktivnosti, poput kreiranja/izmene ACL zapisa ili namespace konfiguracija",
+                  "mitigation": "Implementacija detaljnog vođenja logova operacija i transakcija radi praćenja svih promena",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "f5475579-c5a9-41c1-a9d6-5079efbc273d",
+            "source": {
+              "cell": "158b9c64-b392-47d1-8600-a276fea53284"
+            },
+            "target": {
+              "cell": "adf9dc64-f7c8-434a-9028-a2745176a23b"
+            },
+            "vertices": [
+              {
+                "x": 280,
+                "y": 80
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "b7b481f0-aaea-40b1-a112-59bdce717ac2",
+            "source": {
+              "cell": "adf9dc64-f7c8-434a-9028-a2745176a23b"
+            },
+            "target": {
+              "cell": "1c7803cd-9348-48e8-8b60-3dc8fbb2c30c"
+            },
+            "vertices": [
+              {
+                "x": 210,
+                "y": 350
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "fd387a84-d695-4f74-bc66-863d138e67ba",
+            "source": {
+              "x": 430,
+              "y": 0
+            },
+            "target": {
+              "cell": "8d22c646-358d-4a72-95fb-041aa0ce1f81"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "0f1a437d-955f-4e85-9337-b9e8c24493c8",
+            "source": {
+              "cell": "1c7803cd-9348-48e8-8b60-3dc8fbb2c30c"
+            },
+            "target": {
+              "cell": "8d22c646-358d-4a72-95fb-041aa0ce1f81"
+            },
+            "vertices": [
+              {
+                "x": 260,
+                "y": 390
+              },
+              {
+                "x": 310,
+                "y": 340
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "fa23ddd0-71fd-431b-8310-b983caa0a3cd",
+            "source": {
+              "cell": "8d22c646-358d-4a72-95fb-041aa0ce1f81"
+            },
+            "target": {
+              "cell": "1c7803cd-9348-48e8-8b60-3dc8fbb2c30c"
+            },
+            "vertices": [
+              {
+                "x": 410,
+                "y": 310
+              },
+              {
+                "x": 380,
+                "y": 340
+              },
+              {
+                "x": 330,
+                "y": 380
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "b52974c9-11a7-484c-b793-6d1babd67e41",
+            "source": {
+              "x": 410,
+              "y": 140
+            },
+            "target": {
+              "x": 410,
+              "y": 0
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "b6dbe4e3-a48f-472b-929a-4ce22322062a",
+            "source": {
+              "x": 493,
+              "y": 0
+            },
+            "target": {
+              "cell": "ba1edda7-1cc5-441d-9181-b00eb410db56"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "99cc4b12-ceac-487c-b5f6-cd81ad09a8cc",
+            "source": {
+              "cell": "ba1edda7-1cc5-441d-9181-b00eb410db56"
+            },
+            "target": {
+              "cell": "4ac33700-776e-4277-b381-8f200b3a8563"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "1eec81f4-af97-4cd7-b4a2-195d7e029532",
+            "source": {
+              "cell": "4ac33700-776e-4277-b381-8f200b3a8563"
+            },
+            "target": {
+              "cell": "8d22c646-358d-4a72-95fb-041aa0ce1f81"
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "8c9efdf4-ab32-4904-b000-a17ae790efdc",
+            "source": {
+              "x": 210,
+              "y": -90
+            },
+            "target": {
+              "x": 710,
+              "y": -30
+            },
+            "vertices": [
+              {
+                "x": 220,
+                "y": -100
+              },
+              {
+                "x": 270,
+                "y": -20
+              },
+              {
+                "x": 380,
+                "y": 90
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "e6a09b80-ecf2-4323-a783-21cbb45c35d4",
+            "source": {
+              "x": 60,
+              "y": 480
+            },
+            "target": {
+              "x": 400,
+              "y": 500
+            },
+            "vertices": [
+              {
+                "x": 200,
+                "y": 310
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "381786a1-5694-4f43-8baf-351c7a034f8b",
+            "source": {
+              "x": 500,
+              "y": 510
+            },
+            "target": {
+              "x": 910,
+              "y": 480
+            },
+            "vertices": [
+              {
+                "x": 610,
+                "y": 310
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 9
+  }
+}
