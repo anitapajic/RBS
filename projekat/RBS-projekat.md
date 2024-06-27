@@ -62,6 +62,6 @@
 ---
 
 # Threat Model
-![alt text](https://github.com/anitapajic/RBS/blob/main/images/ThreatModelProjekat.png?raw=true)
+![alt text](https://github.com/anitapajic/RBS/blob/main/images/threatModelProjekat.png?raw=true)
 ---
 
